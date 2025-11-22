@@ -98,15 +98,7 @@ npm run start
 
 答：mysql 5.7 及以上版本即可
 
-**2. 项目的代码结构？**
-
-答：server 目录是后端代码，web 目录是前端代码。
-
-**3. 需要学习哪些技术知识？**
-
-答：需要学习[python 编程知识](https://www.runoob.com/python3/python3-tutorial.html)、[django 框架知识](https://docs.djangoproject.com/zh-hans/3.2/)、[vue 编程知识](https://cn.vuejs.org/guide/introduction.html)
-
-**4. 后台管理的默认账号密码是？**
+**2. 后台管理的默认账号密码是？**
 
 答：管理员账号密码是：admin / admin123
 
