@@ -1,12 +1,12 @@
 services:
   web-b2b-backend:
     build:
-      context: ./server
+      context: ../server
       dockerfile: Dockerfile
 
   web-b2b-frontend:
     build:
-      context: ./web
+      context: ../web
       dockerfile: Dockerfile
       args:
         NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}

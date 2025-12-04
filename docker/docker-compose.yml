@@ -2,10 +2,10 @@ services:
   web-b2b-backend:
     # 后端镜像的构建方式请通过 docker-compose.dev.yml / docker-compose.prod.yml 控制
     env_file:
-      - .env/.env.common
-      - ${ENV_FILE:-.env/.env.dev}
+      - ./.env/.env.common
+      - ${ENV_FILE:-./.env/.env.dev}
     volumes:
-      - ./server/upload:/app/upload
+      - ../server/upload:/app/upload
     expose:
       - "80"
     restart: unless-stopped
@@ -15,8 +15,8 @@ services:
   web-b2b-frontend:
     # 前端镜像的构建方式请通过 docker-compose.dev.yml / docker-compose.prod.yml 控制
     env_file:
-      - .env/.env.common
-      - ${ENV_FILE:-.env/.env.dev}
+      - ./.env/.env.common
+      - ${ENV_FILE:-./.env/.env.dev}
     expose:
       - "80"
     restart: unless-stopped
