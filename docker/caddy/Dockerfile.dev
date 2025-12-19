@@ -1,0 +1,5 @@
+FROM caddy:latest
+
+COPY Caddyfile.dev /etc/caddy/Caddyfile
+
+EXPOSE 8524

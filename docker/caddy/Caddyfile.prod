@@ -1,0 +1,21 @@
+shop.beisi.tech {
+	@myappBare path /myapp
+	redir @myappBare /myapp/ 308
+
+	handle /myapp/* {
+		reverse_proxy web-b2b-backend:80
+	}
+
+	handle /upload/* {
+		reverse_proxy web-b2b-backend:80
+	}
+
+	handle * {
+		reverse_proxy web-b2b-frontend:80
+	}
+
+	@http {
+		protocol http
+	}
+	redir @http https://{host}{uri} 301
+}

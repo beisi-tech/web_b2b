@@ -1,0 +1,5 @@
+FROM caddy:latest
+
+COPY Caddyfile.prod /etc/caddy/Caddyfile
+
+EXPOSE 80 443

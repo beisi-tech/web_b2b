@@ -2,10 +2,6 @@
 
 > 基于 React+django 开发的 b2b 企业网站，适用场景包括外贸独立站、企业官网、产品展示网站等场景。自 2025 年 9 月 9 日起本项目不再维护。
 
-## 在线演示
-
-演示地址：[https://010.fktool.com](https://010.fktool.com)
-
 ## 开发环境
 
 - 后端： Python 3.8 + Django 3.2
@@ -20,12 +16,6 @@
 - 后端技术栈 Python、Django、djangorestframework、pip
 
 ## 运行步骤
-
-### 软件准备
-
-1. Python 3.8 [下载地址](https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe)
-2. MySQL 5.7 [下载地址](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.44.0.msi)
-3. Node [下载地址](https://nodejs.org/dist/v18.20.2/node-v18.20.2-x64.msi)
 
 ### 后端运行步骤
 
