@@ -1,6 +1,3 @@
-# Environment configuration files
-# Ignore actual .env files but NOT .example files
-# Use exact paths to avoid matching .example files
 /.env
 /.env.local
 /.env.*.local
