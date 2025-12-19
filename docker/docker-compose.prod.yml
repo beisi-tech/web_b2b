@@ -6,8 +6,8 @@ services:
       - "3306:3306"
     restart: unless-stopped
     privileged: true
-    environment:
-      MYSQL_ROOT_PASSWORD: F29A99E8-4E64-4728-813A-3725EDBAF376
+    env_file:
+      - ./.env/.env.prod
     volumes:
       - "./db/mysql/conf:/etc/mysql/conf.d"
       - "./db/mysql/data:/var/lib/mysql"
@@ -23,6 +23,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    env_file:
+      - ./.env/.env.prod
     volumes:
       - ./caddy/data:/data
       - ./caddy/config:/config

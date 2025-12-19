@@ -1,4 +1,4 @@
-shop.beisi.tech {
+{env.DOMAIN} {
 	@myappBare path /myapp
 	redir @myappBare /myapp/ 308
 
