@@ -8,5 +8,7 @@
 /web/.env.local
 /web/.env.development.local
 /web/.env.production.local
-/docker/db/mysql
-/docker/caddy
+/docker/db/mysql/data
+/docker/db/mysql/conf
+/docker/caddy/data
+/docker/caddy/config
