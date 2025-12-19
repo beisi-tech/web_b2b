@@ -96,7 +96,42 @@ npm run start
 
 所有 docker compose 相关文件与 .env 文件已统一放在 `docker/` 目录下。
 
-- 本地构建并测试镜像：`docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml --env-file docker/.env/.env.common --env-file docker/.env/.env.dev up -d --build`
-- 停止本地服务：`docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml --env-file docker/.env/.env.common --env-file docker/.env/.env.dev down`
-- 生产环境拉取镜像运行：`docker compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml --env-file docker/.env/.env.common --env-file docker/.env/.env.prod up -d`
-- 停止生产环境容器：`docker compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml --env-file docker/.env/.env.common --env-file docker/.env/.env.prod down`
+### 开发环境
+
+启动开发环境：
+
+```bash
+cd docker
+docker compose -f docker-compose.dev.yml up -d --build
+```
+
+停止开发环境：
+
+```bash
+cd docker
+docker compose -f docker-compose.dev.yml down
+```
+
+### 生产环境
+
+启动生产环境：
+
+```bash
+cd docker
+docker compose -f docker-compose.prod.yml up -d
+```
+
+停止生产环境：
+
+```bash
+cd docker
+docker compose -f docker-compose.prod.yml down
+```
+
+**注意事项：**
+
+- 开发环境使用本地构建，生产环境使用预构建镜像
+- 所有服务都运行在 `beisi-shared-network` 网络中
+- MySQL 数据持久化在 `docker/db/mysql/data` 目录
+- Caddy 配置和证书持久化在 `docker/caddy/data` 和 `docker/caddy/config` 目录
+- 上传文件持久化在 `server/upload` 目录

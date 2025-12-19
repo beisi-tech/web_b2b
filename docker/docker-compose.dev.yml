@@ -4,7 +4,7 @@ services:
     container_name: mysql
     ports:
       - "3306:3306"
-    restart: always
+    restart: unless-stopped
     privileged: true
     environment:
       MYSQL_ROOT_PASSWORD: F29A99E8-4E64-4728-813A-3725EDBAF376
@@ -13,7 +13,8 @@ services:
       - "./db/mysql/data:/var/lib/mysql"
       - "./db/mysql/init:/docker-entrypoint-initdb.d"
     networks:
-      - beisi-network
+      - beisi-shared-network
+
   caddy:
     build:
       context: ./caddy
@@ -26,13 +27,28 @@ services:
       - ./caddy/config:/config
       - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile
     networks:
-      - beisi-network
-    restart: always
+      - beisi-shared-network
+    restart: unless-stopped
+    depends_on:
+      - web-b2b-backend
+      - web-b2b-frontend
 
   web-b2b-backend:
     build:
       context: ../server
       dockerfile: Dockerfile
+    env_file:
+      - ./.env/.env.common
+      - ./.env/.env.dev
+    volumes:
+      - ../server/upload:/app/upload
+    expose:
+      - "80"
+    restart: unless-stopped
+    networks:
+      - beisi-shared-network
+    depends_on:
+      - mysql
 
   web-b2b-frontend:
     build:
@@ -44,3 +60,15 @@ services:
         NEXT_PUBLIC_BASE_PATH: ${NEXT_PUBLIC_BASE_PATH}
         NEXT_PUBLIC_IMAGE_DOMAINS: ${NEXT_PUBLIC_IMAGE_DOMAINS}
         NEXT_PUBLIC_TEMPLATE_ID: ${NEXT_PUBLIC_TEMPLATE_ID}
+    env_file:
+      - ./.env/.env.common
+      - ./.env/.env.dev
+    expose:
+      - "80"
+    restart: unless-stopped
+    networks:
+      - beisi-shared-network
+
+networks:
+  beisi-shared-network:
+    driver: bridge
