@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-ARG PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+ARG PIP_INDEX_URL=https://pypi.org/simple
 ENV PIP_INDEX_URL=${PIP_INDEX_URL}
 
 ARG PIP_DEFAULT_TIMEOUT=120
@@ -16,7 +16,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . ./
 
-RUN chmod +x /app/entrypoint.sh \
+# 转换行尾符并设置执行权限
+RUN sed -i 's/\r$//' /app/entrypoint.sh \
+    && chmod +x /app/entrypoint.sh \
     && mkdir -p /app/upload
 
 EXPOSE 80
