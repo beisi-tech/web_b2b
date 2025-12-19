@@ -1,11 +1,13 @@
 # Environment configuration files
-.env
-*.env
-.env.*
-*.env.*
-
-# Keep example env templates tracked
-!*.example
-!*.env.example
-!*.env.*.example
-!**/*.example
+# Ignore actual .env files but NOT .example files
+# Use exact paths to avoid matching .example files
+/.env
+/.env.local
+/.env.*.local
+/docker/.env/.env.dev
+/docker/.env/.env.prod
+/server/.env
+/server/.env.local
+/web/.env.local
+/web/.env.development.local
+/web/.env.production.local
