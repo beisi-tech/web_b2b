@@ -37,7 +37,6 @@ services:
   web-b2b-backend:
     image: beisitech/web_b2b-server:latest
     env_file:
-      - ./.env/.env.common
       - ./.env/.env.prod
     volumes:
       - ../server/upload:/app/upload
@@ -52,7 +51,6 @@ services:
   web-b2b-frontend:
     image: beisitech/web_b2b:latest
     env_file:
-      - ./.env/.env.common
       - ./.env/.env.prod
     expose:
       - "80"
