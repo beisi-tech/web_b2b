@@ -1,9 +1,13 @@
 import axios from 'axios';
 
+const serverBaseUrl =
+    process.env.DJANGO_INTERNAL_BASE_URL ||
+    process.env.BASE_HOST_URL ||
+    process.env['NEXT_PUBLIC_DJANGO_BASE_URL'] ||
+    '';
+
 const api = axios.create({
-    baseURL: typeof window === 'undefined'
-        ? (process.env.DJANGO_INTERNAL_BASE_URL || process.env.NEXT_PUBLIC_DJANGO_BASE_URL)
-        : process.env.NEXT_PUBLIC_DJANGO_BASE_URL,
+    baseURL: typeof window === 'undefined' ? serverBaseUrl : '',
     timeout: 15000,
     headers: {
         'Content-Type': 'application/json',

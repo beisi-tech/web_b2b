@@ -254,7 +254,7 @@ export function MobileNav({sectionData, mobileMenuOpen, setMobileMenuOpen}) {
                         <span className="sr-only">Logo</span>
                         <img
                             alt="Logo"
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${sectionData.basicSite.site_logo}`}
+                            src={`/upload/img/${sectionData.basicSite.site_logo}`}
                             className="h-12 w-auto"
                         />
                     </Link>

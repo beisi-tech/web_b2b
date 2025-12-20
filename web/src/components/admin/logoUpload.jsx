@@ -81,7 +81,7 @@ const LogoImageUpload = ({maxCount, maxSize,accept, imageList, onImageUploadChan
 
     const props = {
         name: 'my-file',
-        action: process.env.NEXT_PUBLIC_BASE_URL + '/myapp/admin/cdn/uploadLogoImg',
+        action: '/myapp/admin/cdn/uploadLogoImg',
         headers: {
             admintoken: admintoken,
         },

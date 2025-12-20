@@ -81,7 +81,7 @@ const IcoImageUpload = ({maxCount, maxSize,accept, imageList, onImageUploadChang
 
     const props = {
         name: 'my-file',
-        action: process.env.NEXT_PUBLIC_BASE_URL + '/myapp/admin/cdn/uploadIcoImg',
+        action: '/myapp/admin/cdn/uploadIcoImg',
         headers: {
             admintoken: admintoken,
         },

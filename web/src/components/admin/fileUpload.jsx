@@ -56,7 +56,7 @@ const FileUpload = ({maxCount, maxSize, accept, myFileList, onFileUploadChange})
 
     const props = {
         name: 'my-file',
-        action: process.env.NEXT_PUBLIC_BASE_URL + '/myapp/admin/cdn/uploadNormalFile',
+        action: '/myapp/admin/cdn/uploadNormalFile',
         headers: {
             admintoken: admintoken,
         },

@@ -1,6 +1,7 @@
 import api from "@/utils/axiosApi";
 import {cache} from "react";
 import {getIp} from "@/utils/tools";
+import { getRequestBaseUrl, getTemplateId } from "@/lib/server-config";
 
 export default async function Page({params}) {
     const pageNumber = getPageNumber(params?.slug);
@@ -8,7 +9,7 @@ export default async function Page({params}) {
     const sectionData = await getSectionDataCached(urlParams);
     
     // 获取模板id
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const templateId = getTemplateId();
 
     // 准备传递给模板的props
     const templateProps = {
@@ -37,6 +38,8 @@ export async function generateMetadata({params}) {
         seo_keywords = 'Case'
     } = seoData || {};
 
+    const baseUrl = getRequestBaseUrl();
+
     return {
         title: seo_title,
         description: seo_description,
@@ -45,7 +48,7 @@ export async function generateMetadata({params}) {
         openGraph: {
             title: seo_title || 'Case',
             description: seo_description || 'Case',
-            url: process.env.NEXT_PUBLIC_BASE_URL,
+            url: baseUrl,
             siteName: siteName,
             image: '',
             type: 'website',

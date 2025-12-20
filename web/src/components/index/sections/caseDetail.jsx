@@ -34,7 +34,7 @@ export default function CaseDetail({ detailData, categoryData, recommendData }){
 
                             <div className="relative w-full aspect-video mb-8 rounded-md overflow-hidden">
                                 <Image
-                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${detailData.cover}`}
+                                    src={`/upload/img/${detailData.cover}`}
                                     alt={detailData.title}
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
@@ -87,7 +87,7 @@ export default function CaseDetail({ detailData, categoryData, recommendData }){
                                                         <div
                                                             className="relative h-44 rounded-md overflow-hidden mb-3 shadow-sm">
                                                             <Image
-                                                                src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                                                                src={`/upload/img/${cover}`}
                                                                 alt={product.title}
                                                                 fill
                                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"

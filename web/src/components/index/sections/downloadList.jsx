@@ -94,7 +94,7 @@ export default function DownloadList({downloadData}) {
                     {/* Download link */}
                     <div className="mt-4 md:mt-0">
                       <a
-                        href={file.link || `${process.env.NEXT_PUBLIC_BASE_URL}/upload/file/${file.raw}`}
+                        href={file.link || `/upload/file/${file.raw}`}
                         target="_blank"
                         download
                         className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-mainColorNormal hover:bg-mainColorDeep focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mainColorNormal transition-colors"

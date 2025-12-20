@@ -2,12 +2,13 @@ import {cache} from "react";
 import api from "@/utils/axiosApi";
 import {headers} from "next/headers";
 import {getIp} from "@/utils/tools";
+import { getRequestBaseUrl, getTemplateId } from "@/lib/server-config";
 
 export default async function Home() {
     const sectionData = await getSectionDataCached();
 
     // 获取模板id
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const templateId = getTemplateId();
 
     // 准备传递给模板的props
     const templateProps = {
@@ -39,6 +40,8 @@ export async function generateMetadata({params}) {
     const siteName = data.siteName;
 
     // 返回动态生成的metadata
+    const baseUrl = getRequestBaseUrl();
+
     return {
         title: seo_title || siteName || 'Home',
         description: seo_description || siteName || 'Home',
@@ -47,7 +50,7 @@ export async function generateMetadata({params}) {
         openGraph: {
             title: seo_title || siteName || 'Home',
             description: seo_description || siteName || 'Home',
-            url: process.env.NEXT_PUBLIC_BASE_URL,
+            url: baseUrl,
             siteName: siteName,
             image: '',
             type: 'website',

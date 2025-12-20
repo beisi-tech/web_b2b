@@ -90,7 +90,7 @@ export default function ProductDetail({detailData, relatedData}) {
                                         <Link href={`/product/${relatedProduct.id}`}>
                                             <div className="relative w-full pt-[100%]">
                                                 <Image
-                                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                                                    src={`/upload/img/${cover}`}
                                                     alt={relatedProduct.title}
                                                     fill
                                                     className="object-cover"

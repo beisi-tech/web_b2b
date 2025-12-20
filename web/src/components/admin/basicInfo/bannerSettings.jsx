@@ -54,7 +54,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setHomeImageList([]);
@@ -66,7 +66,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setProductImageList([]);
@@ -77,7 +77,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setAboutImageList([]);
@@ -88,7 +88,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setContactImageList([]);
@@ -99,7 +99,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setNewsImageList([]);
@@ -110,7 +110,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setCaseImageList([]);
@@ -121,7 +121,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setFaqImageList([]);
@@ -132,7 +132,7 @@ const BannerSettings = () => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                url: '/upload/img/' + item,
             })));
         } else {
             setDownloadImageList([]);

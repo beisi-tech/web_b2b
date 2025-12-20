@@ -4,6 +4,7 @@ import {Roboto, Open_Sans, Lato, Nunito, Merriweather, Montserrat } from 'next/f
 import "@/styles/globals.css";
 import api from "@/utils/axiosApi";
 import ThemeScript from '@/components/index/sections/ThemeScript';
+import { getTemplateId } from '@/lib/server-config';
 
 export const revalidate = 0
 
@@ -27,8 +28,7 @@ const fontConfigs = {
 };
 
 // 获取当前模板的字体
-const getTemplateFont = () => {
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID || '001';
+const getTemplateFont = (templateId) => {
     return fontConfigs[templateId] || lato; // 默认使用 Lato
 };
 
@@ -37,8 +37,7 @@ export const metadata = {
 }
 
 // 生成内联样式，确保主题变量优先设置
-const getInitialThemeStyles = () => {
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID || '001';
+const getInitialThemeStyles = (templateId) => {
     return `
         :root {
             --main-color-light: var(--main-color-light-${templateId});
@@ -52,10 +51,10 @@ export default async function RootLayout({children}) {
     const {navSectionData, footerSectionData} = await getSectionData();
     
     // 获取模板id
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const templateId = getTemplateId();
     
     // 获取当前模板的字体
-    const font = getTemplateFont();
+    const font = getTemplateFont(templateId);
     
     // 检查网站状态
     const isWebsiteDown = navSectionData?.basicSite?.status === "2";
@@ -67,16 +66,16 @@ export default async function RootLayout({children}) {
                 <head>
                     <title>Website Under Maintenance</title>
                     {/* 内联样式优先设置主题变量 */}
-                    <style dangerouslySetInnerHTML={{ __html: getInitialThemeStyles() }} />
+                    <style dangerouslySetInnerHTML={{ __html: getInitialThemeStyles(templateId) }} />
                     {/* 优先加载主题脚本 */}
-                    <ThemeScript />
+                    <ThemeScript templateId={templateId} />
                 </head>
                 <body className={`${font.className} bg-gray-50 overflow-x-hidden flex items-center justify-center min-h-screen`}>
                     <div className="max-w-md w-full mx-auto bg-white rounded-md shadow-lg p-8 text-center">
                         {navSectionData?.basicSite?.site_logo && (
                             <div className="flex justify-center mb-6">
                                 <img 
-                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${navSectionData.basicSite.site_logo}`} 
+                                    src={`/upload/img/${navSectionData.basicSite.site_logo}`} 
                                     alt="Website Logo" 
                                     className="h-16 w-auto" 
                                 />
@@ -105,9 +104,9 @@ export default async function RootLayout({children}) {
         <html lang="en" suppressHydrationWarning>
             <head>
                 {/* 内联样式优先设置主题变量 */}
-                <style dangerouslySetInnerHTML={{ __html: getInitialThemeStyles() }} />
+                <style dangerouslySetInnerHTML={{ __html: getInitialThemeStyles(templateId) }} />
                 {/* 优先加载主题脚本 */}
-                <ThemeScript />
+                <ThemeScript templateId={templateId} />
             </head>
             <body className={`${font.className} bg-white overflow-x-hidden`}>
                 <IndexLayoutTemplate 

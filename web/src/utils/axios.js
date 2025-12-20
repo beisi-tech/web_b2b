@@ -1,10 +1,7 @@
 import axios from 'axios';
 
-const normalizedBaseUrl = (process.env.NEXT_PUBLIC_BASE_URL || '').replace(/\/$/, '');
-
 // 创建 axios 实例
 const axiosInstance = axios.create({
-    baseURL: normalizedBaseUrl || undefined,
     timeout: 15000, // 设置请求超时时间
     headers: {
         'Content-Type': 'application/json',
@@ -43,8 +40,7 @@ axiosInstance.interceptors.response.use(
                 localStorage.removeItem('admintoken');
                 localStorage.removeItem('username');
                 // 例如，重定向到登录页
-                const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
-                window.location.href = bp + '/adminLogin';
+                window.location.href = '/adminLogin';
             }
             // 处理其他响应错误
             return Promise.reject(response.data); // 返回错误信息

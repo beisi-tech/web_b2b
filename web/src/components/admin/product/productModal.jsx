@@ -72,7 +72,7 @@ const ProductModal = ({isOpen, onRequestClose, initialItem}) => {
                     success: true,
                     name: item,
                     status: 'done',
-                    url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/img/' + item,
+                    url: '/upload/img/' + item,
                 })));
             } else {
                 setImageList([]);

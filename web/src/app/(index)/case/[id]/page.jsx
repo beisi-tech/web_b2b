@@ -1,6 +1,7 @@
 import api from "@/utils/axiosApi";
 import {cache} from 'react';
 import {getIp} from "@/utils/tools";
+import { getTemplateId } from "@/lib/server-config";
 
 // 使用React的缓存机制优化API调用
 const getCaseDetailCached = cache(async (id) => {
@@ -53,7 +54,7 @@ export default async function Page({params}) {
     }
 
     // 获取模板id
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const templateId = getTemplateId();
 
     // 准备传递给模板的props
     const templateProps = {

@@ -19,7 +19,7 @@ export default function WhoWeAre({aboutData}) {
                 <div>
                     <div className="relative h-60 md:h-96 bg-gray-100 rounded-lg overflow-hidden">
                         <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${aboutData.aboutCover}`}
+                            src={`/upload/img/${aboutData.aboutCover}`}
                             alt="About Us"
                             fill
                             quality={90}

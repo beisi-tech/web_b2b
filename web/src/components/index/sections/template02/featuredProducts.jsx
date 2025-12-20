@@ -12,7 +12,7 @@ function ProductCard({ product }) {
                 <Link href={`/product/${product.id}`}>
                     <div className="absolute w-full h-full top-0 left-0 inset-0 transition-transform duration-300 group-hover:scale-105">
                         <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                            src={`/upload/img/${cover}`}
                             alt={product.title}
                             fill
                             quality={90}

@@ -37,7 +37,7 @@ export default function CustomersSay({commentData}){
                                 <div className="flex items-center mt-auto">
                                     <div className="w-14 h-14 rounded-full overflow-hidden mr-4 relative">
                                         <Image
-                                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${testimonial.comment_cover}`}
+                                            src={`/upload/img/${testimonial.comment_cover}`}
                                             alt={testimonial.comment_name}
                                             fill
                                             sizes="56px"

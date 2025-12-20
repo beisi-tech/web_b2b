@@ -10,7 +10,7 @@ function CategoryCard({category}) {
         <Link href={`/product/category/${category.id}`} className="block group">
             <div className="relative overflow-hidden mb-4" style={{ paddingBottom: '100%' }}>
                 <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${category.cover}`}
+                    src={`/upload/img/${category.cover}`}
                     alt={category.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"

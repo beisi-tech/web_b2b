@@ -18,7 +18,7 @@ export default function AboutUs({aboutData, companyName, statsData}) {
                     {/* 左侧图片 */}
                     <div className="relative h-[300px] lg:h-full overflow-hidden">
                         <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${aboutData.aboutCover}`}
+                            src={`/upload/img/${aboutData.aboutCover}`}
                             alt={companyName}
                             fill
                             className="object-cover"

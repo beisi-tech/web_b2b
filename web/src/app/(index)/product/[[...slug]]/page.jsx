@@ -1,6 +1,7 @@
 import {cache} from "react";
 import api from "@/utils/axiosApi";
 import {getIp} from "@/utils/tools";
+import { getRequestBaseUrl, getTemplateId } from "@/lib/server-config";
 
 export default async function Page({params, searchParams}) {
     // 解析slug参数
@@ -11,10 +12,10 @@ export default async function Page({params, searchParams}) {
     let pageNumber = 1;
     let pageSize = 9;
 
-    const id = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const templateId = getTemplateId();
 
     // 兼容模板
-    if (['004', '005', '006', '007', '008', '009', '010'].includes(id)) {
+    if (['004', '005', '006', '007', '008', '009', '010'].includes(templateId)) {
         pageSize = 12;
     }
 
@@ -41,8 +42,6 @@ export default async function Page({params, searchParams}) {
     const {bannerData, categoryData, productData, featuredData, total} = await getSectionDataCached(urlParams)
 
     // 获取模板id
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
-
     // 准备传递给模板的props
     const templateProps = {
         bannerData,
@@ -72,6 +71,8 @@ export async function generateMetadata({params}) {
     const siteName = data.siteName;
 
     // 返回动态生成的metadata
+    const baseUrl = getRequestBaseUrl();
+
     return {
         title: seo_title || 'Products',
         description: seo_description || 'Products',
@@ -80,7 +81,7 @@ export async function generateMetadata({params}) {
         openGraph: {
             title: seo_title || 'Products',
             description: seo_description || 'Products',
-            url: process.env.NEXT_PUBLIC_BASE_URL,
+            url: baseUrl,
             siteName: siteName,
             image: '',
             type: 'website',

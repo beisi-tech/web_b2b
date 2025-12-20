@@ -56,7 +56,7 @@ export default function Certification({ certificationImageData }) {
         if (e) e.stopPropagation();
         const newIndex = (currentIndex + 1) % dataList.length;
         setCurrentIndex(newIndex);
-        setCurrentImage(`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${dataList[newIndex]}`);
+        setCurrentImage(`/upload/img/${dataList[newIndex]}`);
     };
     
     // 切换到上一张图片
@@ -64,7 +64,7 @@ export default function Certification({ certificationImageData }) {
         if (e) e.stopPropagation();
         const newIndex = (currentIndex - 1 + dataList.length) % dataList.length;
         setCurrentIndex(newIndex);
-        setCurrentImage(`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${dataList[newIndex]}`);
+        setCurrentImage(`/upload/img/${dataList[newIndex]}`);
     };
 
     return (
@@ -88,7 +88,7 @@ export default function Certification({ certificationImageData }) {
                         <div 
                             key={index} 
                             className="group bg-white cursor-pointer relative rounded-md"
-                            onClick={() => openModal(`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${item}`, index)}
+                            onClick={() => openModal(`/upload/img/${item}`, index)}
                             style={{
                                 opacity: 0,
                                 transform: 'translateY(20px)',
@@ -100,7 +100,7 @@ export default function Certification({ certificationImageData }) {
                             <div className="relative w-full box-content" style={{ paddingBottom: '100%' }}>
                                 <div className="absolute w-full h-full top-0 left-0 bg-gray-200 overflow-hidden ">
                                     <Image
-                                        src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${item}`}
+                                        src={`/upload/img/${item}`}
                                         alt={`Certification Image ${index + 1}`}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"

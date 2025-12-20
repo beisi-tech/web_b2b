@@ -39,7 +39,7 @@ export default function CompanyNews({newsData}) {
                         {/* 图片容器 */}
                         <div className="relative w-full h-0 pb-[70%] overflow-hidden">
                             <Image
-                                src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${post.cover}`}
+                                src={`/upload/img/${post.cover}`}
                                 alt={post.title}
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

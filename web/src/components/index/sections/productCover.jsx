@@ -120,7 +120,7 @@ const ProductCover = ({product}) => {
                         <SwiperSlide key={index}>
                             <div className="relative w-full h-full">
                                 <Image
-                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${image}`}
+                                    src={`/upload/img/${image}`}
                                     alt="Product Cover"
                                     fill
                                     quality={90}
@@ -222,7 +222,7 @@ const ProductCover = ({product}) => {
 
                         <div className="relative">
                             <Image
-                                src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${currentImage}`}
+                                src={`/upload/img/${currentImage}`}
                                 alt={`Product View ${currentIndex + 1}`}
                                 width={900}
                                 height={900}

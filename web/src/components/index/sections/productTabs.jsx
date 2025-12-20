@@ -19,8 +19,8 @@ export default function ProductTabs({product}) {
 
 
     // 分享链接构建
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-    const articleUrl = `${baseUrl}/product/${product.id}`;
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+    const articleUrl = baseUrl ? `${baseUrl}/product/${product.id}` : `/product/${product.id}`;
     const encodedUrl = encodeURIComponent(articleUrl);
     const encodedTitle = encodeURIComponent(product.title);
     const encodedSummary = encodeURIComponent(`Check out this article: ${product.title}`);

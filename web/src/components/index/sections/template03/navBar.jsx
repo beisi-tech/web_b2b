@@ -20,7 +20,7 @@ export default function NavBar({sectionData}) {
                             <span className="sr-only">Logo</span>
                             <img
                                 alt="logo"
-                                src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${sectionData.basicSite.site_logo}`}
+                                src={`/upload/img/${sectionData.basicSite.site_logo}`}
                                 className="h-12 w-auto"
                             />
                         </Link>

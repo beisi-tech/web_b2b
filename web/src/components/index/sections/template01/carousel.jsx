@@ -43,7 +43,7 @@ const Carousel = ({bannerData}) => {
                     <SwiperSlide key={index}>
                         <div className="relative w-full h-full">
                             <Image
-                                src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${image}`}
+                                src={`/upload/img/${image}`}
                                 alt="Hero Section"
                                 fill
                                 sizes="100vw"

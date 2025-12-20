@@ -41,7 +41,7 @@ function WangEditor({htmlText, onHtmlResult}) {
 
 
     editorConfig.MENU_CONF['uploadImage'] = {
-        server: process.env.NEXT_PUBLIC_BASE_URL + '/myapp/admin/cdn/uploadFile',
+        server: '/myapp/admin/cdn/uploadFile',
         fieldName: 'my-file',
         // 单个文件的最大体积限制
         maxFileSize: maxImageFileSize, // M
@@ -87,7 +87,7 @@ function WangEditor({htmlText, onHtmlResult}) {
 
 
     editorConfig.MENU_CONF['uploadVideo'] = {
-        server: process.env.NEXT_PUBLIC_BASE_URL + '/myapp/admin/cdn/uploadFile',
+        server: '/myapp/admin/cdn/uploadFile',
         fieldName: 'my-file',
         // 单个文件的最大体积限制
         maxFileSize: maxVideoFileSize,

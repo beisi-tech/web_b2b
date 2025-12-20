@@ -34,7 +34,7 @@ function CategoryCard({ category }) {
             <div className="relative overflow-hidden mb-3" style={{ paddingBottom: '100%' }}>
                 <div className="absolute w-full h-full top-0 left-0">
                     <Image
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${category.cover}`}
+                        src={`/upload/img/${category.cover}`}
                         alt={category.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"

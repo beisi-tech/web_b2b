@@ -81,7 +81,7 @@ const ImageUpload = ({maxCount, maxSize,accept, imageList, onImageUploadChange})
 
     const props = {
         name: 'my-file',
-        action: process.env.NEXT_PUBLIC_BASE_URL + '/myapp/admin/cdn/uploadImg',
+        action: '/myapp/admin/cdn/uploadImg',
         headers: {
             admintoken: admintoken,
         },

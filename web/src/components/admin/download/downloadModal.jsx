@@ -20,7 +20,7 @@ const DownloadModal = ({isOpen, onRequestClose, initialItem}) => {
                 success: true,
                 name: item,
                 status: 'done',
-                url: process.env.NEXT_PUBLIC_BASE_URL + '/upload/file/' + item,
+                url: '/upload/file/' + item,
             })));
         } else {
             setFileList([]);

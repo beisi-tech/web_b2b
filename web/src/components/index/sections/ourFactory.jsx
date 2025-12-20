@@ -37,14 +37,14 @@ export default function OurFactory({ companyImageData }) {
     const nextImage = () => {
         const newIndex = (currentIndex + 1) % dataList.length;
         setCurrentIndex(newIndex);
-        setCurrentImage(`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${dataList[newIndex]}`);
+        setCurrentImage(`/upload/img/${dataList[newIndex]}`);
     };
     
     // 切换到上一张图片
     const prevImage = () => {
         const newIndex = (currentIndex - 1 + dataList.length) % dataList.length;
         setCurrentIndex(newIndex);
-        setCurrentImage(`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${dataList[newIndex]}`);
+        setCurrentImage(`/upload/img/${dataList[newIndex]}`);
     };
 
     // 处理图片加载动画
@@ -70,12 +70,12 @@ export default function OurFactory({ companyImageData }) {
                             key={index} 
                             className={`group overflow-hidden rounded-lg shadow-md transition-all duration-300 border border-gray-200 cursor-pointer transform hover:scale-102 opacity-0 translate-y-5 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : ''}`}
                             style={{ transitionDelay: `${index * 100}ms` }}
-                            onClick={() => openModal(`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${item}`, index)}
+                            onClick={() => openModal(`/upload/img/${item}`, index)}
                         >
                             <div className="relative w-full overflow-hidden" style={{ paddingBottom: '75%' }}>
                                 <div className="absolute w-full h-full top-0 left-0 inset-0">
                                     <Image
-                                        src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${item}`}
+                                        src={`/upload/img/${item}`}
                                         alt={`Factory Image ${index + 1}`}
                                         fill
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

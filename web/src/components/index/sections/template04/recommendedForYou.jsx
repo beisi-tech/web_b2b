@@ -27,7 +27,7 @@ export default function RecommendedForYou({recommendData}) {
                             <div key={product.id} className="group relative">
                                 <div className="relative w-full h-72 overflow-hidden bg-white">
                                     <Image
-                                        src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                                        src={`/upload/img/${cover}`}
                                         alt={product.title}
                                         fill
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

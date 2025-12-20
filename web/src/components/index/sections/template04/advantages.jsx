@@ -35,7 +35,7 @@ export default function Advantages({advantageData}) {
                              className="bg-white rounded-3xl p-8 flex flex-col border border-gray-200 ">
                             <div className="mb-5 mx-auto rounded-full flex items-center justify-center border border-mainColorLight relative w-[64px] h-[64px]">
                                 <Image
-                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${advantage.advantage_image}`}
+                                    src={`/upload/img/${advantage.advantage_image}`}
                                     alt={advantage.advantage_title}
                                     fill
                                     sizes="64px"

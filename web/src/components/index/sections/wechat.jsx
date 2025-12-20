@@ -51,7 +51,7 @@ export default function Wechat({ wechatId, qrCodeImage, iconSize = "h-6 w-6", co
                             <div className="bg-gray-100 p-3 rounded-md w-64 h-64 flex items-center justify-center mb-4">
                                 {qrCodeImage ? (
                                     <img 
-                                        src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${qrCodeImage}`} 
+                                        src={`/upload/img/${qrCodeImage}`} 
                                         alt="WeChat QR Code" 
                                         className="max-w-full max-h-full"
                                     />

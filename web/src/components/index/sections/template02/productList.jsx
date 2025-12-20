@@ -134,7 +134,7 @@ export default function ProductList({ categoryId, pageNumber, total, categoryDat
                                             <div className="w-16 h-16 flex-shrink-0 mr-4 bg-gray-100 relative">
                                                 <div className="w-full h-full relative">
                                                     <Image
-                                                        src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                                                        src={`/upload/img/${cover}`}
                                                         alt={product.title}
                                                         fill
                                                         className="object-cover"
@@ -170,7 +170,7 @@ export default function ProductList({ categoryId, pageNumber, total, categoryDat
                                         <Link href={`/product/${product.id}`}>
                                             <div className="relative w-full pt-[100%]">
                                                 <Image
-                                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                                                    src={`/upload/img/${cover}`}
                                                     alt={product.title}
                                                     fill
                                                     quality={90}

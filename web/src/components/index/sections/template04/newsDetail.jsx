@@ -83,7 +83,7 @@ export default function NewsDetail({
                                 <div className="relative w-full aspect-video mb-6 overflow-hidden">
                                     <Suspense fallback={<ImageSkeleton className="w-full h-72 md:h-96"/>}>
                                         <Image
-                                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${detailData.cover}`}
+                                            src={`/upload/img/${detailData.cover}`}
                                             alt={detailData.title}
                                             fill
                                             sizes="(max-width: 768px) 100vw, 800px"
@@ -201,7 +201,7 @@ export default function NewsDetail({
                                                                 fallback={<ImageSkeleton
                                                                     className="w-24 h-24"/>}>
                                                                 <Image
-                                                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                                                                    src={`/upload/img/${cover}`}
                                                                     alt={product.title}
                                                                     fill
                                                                     sizes="96px"

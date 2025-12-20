@@ -15,7 +15,7 @@ export default function OurMission({missionData, statsData}) {
                 <div className="w-full lg:w-1/2 flex flex-col lg:mr-8">
                     <div className="relative h-60 lg:h-96 bg-gray-100 rounded-3xl overflow-hidden mb-8">
                         <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${missionData.missionCover}`}
+                            src={`/upload/img/${missionData.missionCover}`}
                             alt="Our Global Mission"
                             fill
                             sizes="(max-width: 1024px) 100vw, 50vw"

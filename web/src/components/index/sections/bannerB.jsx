@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function BannerB({title, titleLink, bannerData}) {
 
-    let imageUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${bannerData}`
+    let imageUrl = `/upload/img/${bannerData}`
     let hasImage = bannerData?.length > 0;
 
     return (

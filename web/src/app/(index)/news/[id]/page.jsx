@@ -1,6 +1,7 @@
 import {cache, Suspense} from 'react';
 import api from "@/utils/axiosApi";
 import {getIp} from "@/utils/tools";
+import { getRequestBaseUrl, getTemplateId } from "@/lib/server-config";
 
 // 使用React的缓存机制优化API调用
 const getNewsDetailCached = cache(async (id) => {    // 这里应该是从API获取数据
@@ -37,6 +38,8 @@ export async function generateMetadata({params}) {
     const siteName = data.siteName;
 
     // 返回动态生成的metadata
+    const baseUrl = getRequestBaseUrl();
+
     return {
         title: seo_title || title,
         description: seo_description || title,
@@ -45,7 +48,7 @@ export async function generateMetadata({params}) {
         openGraph: {
             title: seo_title || title,
             description: seo_description || title,
-            url: process.env.NEXT_PUBLIC_BASE_URL,
+            url: baseUrl,
             siteName: siteName,
             image: '',
             type: 'website',
@@ -70,7 +73,7 @@ export default async function Page({params}) {
     const data = await getNewsDetailCached(id);
 
     // 获取模板id
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const templateId = getTemplateId();
 
     if (!data) {
         // 动态导入对应模板并传入空数据
@@ -82,8 +85,8 @@ export default async function Page({params}) {
     const {detailData, categoryData, recommendData} = data;
 
     // 分享链接构建
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-    const articleUrl = `${baseUrl}/news/${id}`;
+    const articleBaseUrl = getRequestBaseUrl();
+    const articleUrl = articleBaseUrl ? `${articleBaseUrl}/news/${id}` : `/news/${id}`;
     const encodedUrl = encodeURIComponent(articleUrl);
     const encodedTitle = encodeURIComponent(detailData.title);
     const encodedSummary = encodeURIComponent(`Check out this article: ${detailData.title}`);

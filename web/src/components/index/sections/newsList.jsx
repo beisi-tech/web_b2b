@@ -175,7 +175,7 @@ export default function NewsList({pageNumber=1, total, newsData}) {
                                 <div className="absolute w-full h-full top-0 left-0 inset-0">
                                     <Image
                                         alt={post.title || "News image"}
-                                        src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${post.cover}`}
+                                        src={`/upload/img/${post.cover}`}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                                         priority={index === 0}

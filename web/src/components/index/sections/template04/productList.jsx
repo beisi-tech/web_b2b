@@ -185,7 +185,7 @@ export default function ProductList({ categoryId, pageNumber, total, pageSize, c
                                         <Link href={`/product/${product.id}`}>
                                             <div className="relative w-full pt-[100%]">
                                                 <Image
-                                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/upload/img/${cover}`}
+                                                    src={`/upload/img/${cover}`}
                                                     alt={product.title}
                                                     fill
                                                     quality={90}
